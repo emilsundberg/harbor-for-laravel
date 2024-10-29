@@ -1,0 +1,46 @@
+{
+  "name": "emilsundberg/harbor-for-laravel",
+  "version": "1.0.0",
+  "description": "Laravel package for managing local fork development",
+  "type": "library",
+  "license": "MIT",
+  "require": {
+    "php": "^8.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Emilsundberg\\Harbor\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Emilsundberg\\Harbor\\HarborServiceProvider"
+      ]
+    }
+  },
+  "authors": [
+    {
+      "name": "Emil Sundberg",
+      "email": "emil@snowfire.com"
+    }
+  ],
+  "require-dev": {
+    "pestphp/pest": "^3.5",
+    "pestphp/pest-plugin-laravel": "^3.0",
+    "orchestra/testbench": "^9.5"
+  },
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  },
+  "scripts": {
+    "test": "vendor/bin/pest"
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  }
+}
