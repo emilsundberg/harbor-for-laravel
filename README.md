@@ -1,9 +1,6 @@
 # Harbor for Laravel
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/emilsundberg/harbor-for-laravel.svg?style=flat-square)](https://packagist.org/packages/emilsundberg/harbor-for-laravel)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/emilsundberg/harbor-for-laravel/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/emilsundberg/harbor-for-laravel/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/emilsundberg/harbor-for-laravel/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/emilsundberg/harbor-for-laravel/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/emilsundberg/harbor-for-laravel.svg?style=flat-square)](https://packagist.org/packages/emilsundberg/harbor-for-laravel)
 
 Harbor is an elegant Laravel package for managing your package forks when contributing to open source. 
 It allows you to easily manage your forks by docking them in your local harbor, and then casting off back to the original package once your pull request is merged.
