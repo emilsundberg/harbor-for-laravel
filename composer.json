@@ -1,6 +1,6 @@
 {
   "name": "emilsundberg/harbor-for-laravel",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Laravel package for managing local fork development",
   "type": "library",
   "license": "MIT",
