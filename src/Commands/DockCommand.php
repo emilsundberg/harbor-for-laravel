@@ -10,7 +10,7 @@ use Symfony\Component\Process\Exception\ProcessFailedException;
 
 class DockCommand extends Command
 {
-    protected $signature = 'harbor:dock {fork : The fork repository in format username/repo-name}';
+    protected $signature = 'harbor:dock {fork : The fork repository in format username/repo-name} {--branch= : The branch to checkout after cloning}';
     protected $description = 'Clone a fork repository and set it up for local development';
 
     protected string $fork;
@@ -33,6 +33,7 @@ class DockCommand extends Command
             $this->validateComposerJson();
             $this->ensurePackageInstalled();
             $this->updateComposerConfig();
+            $this->checkoutBranch();
             $this->requireDevPackage();
 
             $this->info('Successfully docked fork repository');
@@ -100,6 +101,28 @@ class DockCommand extends Command
             $this->info('Cloned fork repository');
         } catch (Exception $e) {
             throw new Exception('Failed to clone repository: ' . $e->getMessage());
+        }
+    }
+
+    public function checkoutBranch(): void
+    {
+        $branch = $this->option('branch');
+
+        if (! $branch) {
+            return;
+        }
+
+        try {
+            $process = new Process(['git', 'checkout', $branch], $this->clonePath);
+            $process->run();
+
+            if (!$process->isSuccessful()) {
+                throw new ProcessFailedException($process);
+            }
+
+            $this->info("Checked out branch: {$branch}");
+        } catch (Exception $e) {
+            throw new Exception('Failed to checkout branch: ' . $e->getMessage());
         }
     }
 
